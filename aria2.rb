@@ -42,10 +42,9 @@ class Aria2 < Formula
       <key>ProgramArguments</key>
       <array>
         <string>#{opt_bin}/aria2c</string>
-        <string>-D</string>
-        <string>FOREGROUND</string>
       </array>
       <key>RunAtLoad</key>
+      <key>KeepAlive</key><true/>
       <true/>
     </dict>
     </plist>
