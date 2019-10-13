@@ -41,7 +41,7 @@ class Aria2 < Formula
       <string>#{plist_name}</string>
       <key>ProgramArguments</key>
       <array>
-        <string>#{opt_bin}/httpd</string>
+        <string>#{opt_bin}/aria2c</string>
         <string>-D</string>
         <string>FOREGROUND</string>
       </array>
