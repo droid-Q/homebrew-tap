@@ -3,7 +3,7 @@ class Aria2 < Formula
   homepage "https://aria2.github.io/"
   url "https://github.com/aria2/aria2/releases/download/release-1.35.0/aria2-1.35.0.tar.xz"
   sha256 "1e2b7fd08d6af228856e51c07173cfcf987528f1ac97e04c5af4a47642617dfd"
-
+  
   patch do
 	url "https://raw.githubusercontent.com/droid-Q/aria2-patch/master/myaria2.patch"
 	sha256 "ac30ddd38383775ce69f0558b24ba9b12db4c8ef2f9e9a9f22c6d6d8bdd78b6c"
@@ -43,9 +43,8 @@ class Aria2 < Formula
       <array>
         <string>#{opt_bin}/aria2c</string>
       </array>
-      <key>RunAtLoad</key>
+      <key>RunAtLoad</key><true/>
       <key>KeepAlive</key><true/>
-      <true/>
     </dict>
     </plist>
   EOS
