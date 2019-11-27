@@ -6,7 +6,7 @@ class Arthas < Formula
   sha256 "a74fce77215df251963a50f9b30d394d886e8a2b6f0f3b5070b563f0e3aa7eb1"
 
   def install
-    bin.install "as.sh" => "arthas"
+    bin.install "as.sh" => "as"
   end
 
   test do
