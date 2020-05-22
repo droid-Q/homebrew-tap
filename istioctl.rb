@@ -19,7 +19,7 @@ class Istioctl < Formula
     ENV["TAG"] = version.to_s
     ENV["ISTIO_VERSION"] = version.to_s
     ENV["HUB"] = "docker.io/istio"
-
+    ENV["CONTAINER_CLI"] = "/usr/local/bin/docker"
     srcpath = buildpath/"src/istio.io/istio"
     outpath = srcpath/"out/darwin_amd64"
     srcpath.install buildpath.children
