@@ -2,7 +2,8 @@ class Istioctl < Formula
   desc "Istio configuration command-line utility"
   homepage "https://github.com/istio/istio"
   url "https://github.com/istio/istio.git",
-      :tag      => "1.6.0"
+      :tag      => "1.6.0",
+      :revision => "df8ea82bf434fece015767579ef2e4a16e6a3fb3"
 
   bottle do
     cellar :any_skip_relocation
@@ -11,6 +12,7 @@ class Istioctl < Formula
     sha256 "e2fa03231877875b91a44d93f2e6a7ddfe660bed5228b6e4168784b6ede056bf" => :high_sierra
   end
 
+  depends_on "docker" => :build
   depends_on "go" => :build
 
   def install
@@ -18,7 +20,6 @@ class Istioctl < Formula
     ENV["TAG"] = version.to_s
     ENV["ISTIO_VERSION"] = version.to_s
     ENV["HUB"] = "docker.io/istio"
-    ENV["CONTAINER_CLI"] = "/usr/local/bin/docker"
     srcpath = buildpath/"src/istio.io/istio"
     outpath = srcpath/"out/darwin_amd64"
     srcpath.install buildpath.children
