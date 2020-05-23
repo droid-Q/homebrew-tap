@@ -3,7 +3,7 @@ class Arthas < Formula
   homepage "https://alibaba.github.io/arthas/"
   version "3.2.0"
   url "https://github.com/alibaba/arthas/releases/download/arthas-all-#{version}/arthas-#{version}-bin.zip"
-  sha256 "a74fce77215df251963a50f9b30d394d886e8a2b6f0f3b5070b563f0e3aa7eb1"
+  sha256 "83b3957bf8bf680e547fbd17a19ed66c5ab2c9e7a539e50ff7d4fcd597ea3c75"
 
   def install
     bin.install "as.sh" => "as"
