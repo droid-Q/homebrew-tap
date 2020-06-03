@@ -3,8 +3,8 @@ class Rke < Formula
   homepage "https://rancher.com/docs/rke/v0.1.x/en/"
   head "https://github.com/rancher/rke.git"
   url "https://github.com/rancher/rke.git",
-      :tag      => "v1.1.3-rc1",
-      :revision => "f243efbff0361ebf02cfcd5e9345cd4f2acaa9e6"
+      :tag      => "v1.2.0-rc1",
+      :revision => "4295b887b37b9731daedf41e4753fb66720d3ef2"
 
   bottle do
     cellar :any_skip_relocation
