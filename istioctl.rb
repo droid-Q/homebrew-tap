@@ -1,4 +1,5 @@
-cdesc "Istio configuration command-line utility"
+class Istioctl < Formula
+  desc "Istio configuration command-line utility"
   homepage "https://github.com/istio/istio"
   url "https://github.com/istio/istio.git",
       :tag      => "1.6.1",
