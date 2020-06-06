@@ -1,15 +1,38 @@
-class Istioctl < Formula
-  desc "Istio configuration command-line utility"
+cdesc "Istio configuration command-line utility"
   homepage "https://github.com/istio/istio"
-  version "1.6.0"
-  url "https://github.com/istio/istio/releases/download/#{version}/istioctl-#{version}-osx.tar.gz"
-  sha256 "83bf64e1d9c8ae12610e3f8d19a6f60067f3d826058c363d5cfdaadaae31f262"
-  depends_on "docker" => :build
+  url "https://github.com/istio/istio.git",
+      :tag      => "1.6.1",
+      :revision => "f07efb91db1c29b7d6f1ee036ac98e48458cd139"
+
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "e2fa03231877875b91a44d93f2e6a7ddfe660bed5228b6e4168784b6ede056bf" => :catalina
+    sha256 "e2fa03231877875b91a44d93f2e6a7ddfe660bed5228b6e4168784b6ede056bf" => :mojave
+    sha256 "e2fa03231877875b91a44d93f2e6a7ddfe660bed5228b6e4168784b6ede056bf" => :high_sierra
+  end
+
   depends_on "go" => :build
+  depends_on "docker" => :build
+
   def install
-    bin.install "istioctl"
+    ENV["GOPATH"] = buildpath
+    ENV["TAG"] = version.to_s
+    ENV["ISTIO_VERSION"] = version.to_s
+    ENV["HUB"] = "docker.io/istio"
+
+    srcpath = buildpath/"src/istio.io/istio"
+    outpath = srcpath/"out/darwin_amd64"
+    srcpath.install buildpath.children
+
+    cd srcpath do
+      system "make", "istioctl", "istioctl.completion"
+      prefix.install_metafiles
+      bin.install outpath/"istioctl"
+      bash_completion.install outpath/"release/istioctl.bash"
+      zsh_completion.install outpath/"release/_istioctl"
+    end
   end
   test do
-    system "false"
+    assert_match version.to_s, shell_output("#{bin}/istioctl version --remote=false")
   end
 end
