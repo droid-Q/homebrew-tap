@@ -3,14 +3,15 @@ class Rke < Formula
   homepage "https://rancher.com/docs/rke/v0.1.x/en/"
   head "https://github.com/rancher/rke.git"
   url "https://github.com/rancher/rke.git",
-      :tag      => "v1.2.0-rc2",
-      :revision => "f33dc1da6c7e99f5d5ac202e40db5c44f4f9b8e3"
+      :tag      => "v1.1.4",
+      :revision => "28e4dbae8ded43f494ce2f40280d4a3ff3b9f313"
+  license "Apache-2.0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ebb9ba284fb185e5dc454cbba5f6545fc0be87ae8a7f29c68bab432fc2ce164f" => :catalina
-    sha256 "7cd316aee13bff172f744a20412e239aa7f3b3fb689ccab0b9ffc6a474097bf3" => :mojave
-    sha256 "d7a214c68b4b01b5f2d8ead9ba64773d7e255e88f7daa7203296c1a46832e5b2" => :high_sierra
+    sha256 "d6bc20bbddf5f0a031a25f5928cbec0a3181c6c2cd100f819de4f0b511033b8c" => :catalina
+    sha256 "c6629fd7706fecb4c0309fdd36d9c1b04dd08f6767659c3f05095321e36df4ac" => :mojave
+    sha256 "c12e24a66c2f6048d06d0428865b7e2f872c7ff7769fe163b9091d6ada1e1e62" => :high_sierra
   end
 
   depends_on "go" => :build
