@@ -3,8 +3,8 @@ class Rke < Formula
   homepage "https://rancher.com/docs/rke/v0.1.x/en/"
   head "https://github.com/rancher/rke.git"
   url "https://github.com/rancher/rke.git",
-      :tag      => "v1.2.5",
-      :revision => "5092a0c61b5ace0895b5d00815e487cf683dfde7"
+      :tag      => "v1.2.6",
+      :revision => "6ce6e7e29d6613d580fea6a78b1f5cc6ef781741"
   license "Apache-2.0"
 
   bottle do
