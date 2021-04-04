@@ -6,7 +6,6 @@ class Arthas < Formula
   sha256 "3cf8459c41768bd537e1bedd247019b2091a3f3159dfd9ca98ca6ac5c5842084"
 
   depends_on "telnet"
-  
   def install
     bin.install "as.sh" => "as"
   end
