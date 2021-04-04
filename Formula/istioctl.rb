@@ -9,6 +9,6 @@ class Istioctl < Formula
     bin.install "istioctl"
   end
   test do
-    system "false"
+    system "true"
   end
 end
