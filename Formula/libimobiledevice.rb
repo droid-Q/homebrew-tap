@@ -1,0 +1,44 @@
+class Libimobiledevice < Formula
+  desc "Library to communicate with iOS devices natively"
+  homepage "http://www.libimobiledevice.org/"
+  head "https://github.com/libimobiledevice/libimobiledevice.git"
+  # sha256 "786b0de0875053bf61b5531a86ae8119e320edab724fc62fe2150cc931f11037"
+
+  bottle do
+    cellar :any
+    # sha256 "e0b677daf75707d838d7d49ecec7e1cdfd8c01d55651cc719d26a1538bf0dcc7" => :sierra
+    # sha256 "db353988bbd70c57409338bba501a618e1d92e920e409ef587a870618878c18c" => :el_capitan
+    # sha256 "b13e2074ea7c8bb541b9604c6f2cdcdf8b55ee53ddbb541c1b9905ec09bd0c1c" => :yosemite
+    # sha256 "1ef2fe290630098b2c868d10625af7bd66a244c21b0290ae611072ab3fdedb01" => :mavericks
+    # sha256 "9b1c6444d223a9eb99dcade6ee8382a062701293b5e6ddaa11e23405e4d92977" => :mountain_lion
+  end
+
+  head do
+    url "https://git.libimobiledevice.org/libimobiledevice.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+    depends_on "libxml2"
+  end
+
+  depends_on "pkg-config" => :build
+  depends_on "libtasn1"
+  depends_on "libplist"
+  depends_on "usbmuxd"
+  depends_on "openssl"
+
+  def install
+    system "./autogen.sh" if build.head?
+    system "./configure", "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--prefix=#{prefix}",
+                          # As long as libplist builds without Cython
+                          # bindings, libimobiledevice must as well.
+                          "--without-cython"
+    system "make", "install"
+  end
+
+  test do
+    system "#{bin}/idevicedate", "--help"
+  end
+end
