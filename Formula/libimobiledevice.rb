@@ -1,7 +1,7 @@
 class Libimobiledevice < Formula
   desc "Library to communicate with iOS devices natively"
   homepage "http://www.libimobiledevice.org/"
-  head "https://github.com/libimobiledevice/libimobiledevice.git"
+  # head "https://github.com/libimobiledevice/libimobiledevice.git"
   # sha256 "786b0de0875053bf61b5531a86ae8119e320edab724fc62fe2150cc931f11037"
 
   bottle do
@@ -22,10 +22,10 @@ class Libimobiledevice < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libtasn1"
   depends_on "libplist"
-  depends_on "usbmuxd"
+  depends_on "libtasn1"
   depends_on "openssl"
+  depends_on "usbmuxd"
 
   def install
     system "./autogen.sh" if build.head?
