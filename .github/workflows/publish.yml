@@ -23,7 +23,7 @@ jobs:
       - name: Push commits
         uses: Homebrew/actions/git-try-push@master
         with:
-          token: ${{ HOMEBREW_SECRET }}
+          token: ${{ HOMEBREW_GITHUB_API_TOKEN }}
           branch: main
 
       - name: Delete branch
