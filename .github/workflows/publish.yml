@@ -5,11 +5,8 @@ on:
       - labeled
 jobs:
   pr-pull:
-    strategy:
-      matrix:
-        version: ["11-arm64", "11", "10.15", "10.14"]
     if: contains(github.event.pull_request.labels.*.name, 'pr-pull')
-    runs-on: ${{ matrix.version }}
+    runs-on: ["macos-latest", "macos-10.15", "macos-10.14"]
     steps:
       - name: Set up Homebrew
         uses: Homebrew/actions/setup-homebrew@master
@@ -19,14 +16,14 @@ jobs:
 
       - name: Pull bottles
         env:
-          HOMEBREW_GITHUB_API_TOKEN: ${{ SECRET_TOKEN }}
+          HOMEBREW_GITHUB_API_TOKEN: ${{ HOMEBREW_SECRET }}
           PULL_REQUEST: ${{ github.event.pull_request.number }}
         run: brew pr-pull --debug --tap=$GITHUB_REPOSITORY $PULL_REQUEST
 
       - name: Push commits
         uses: Homebrew/actions/git-try-push@master
         with:
-          token: ${{ SECRET_TOKEN }}
+          token: ${{ HOMEBREW_GITHUB_API_TOKEN }}
           branch: main
 
       - name: Delete branch
