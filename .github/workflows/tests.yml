@@ -8,7 +8,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [macOS-latest]
+        os: ["11-arm64", "11", "10.15", "10.14"]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Set up Homebrew
