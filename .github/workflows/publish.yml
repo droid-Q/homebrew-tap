@@ -5,8 +5,11 @@ on:
       - labeled
 jobs:
   pr-pull:
+    strategy:
+      matrix:
+        version: ["11-arm64", "11", "10.15", "10.14"]
     if: contains(github.event.pull_request.labels.*.name, 'pr-pull')
-    runs-on: macOS-latest
+    runs-on: ${{ matrix.version }}
     steps:
       - name: Set up Homebrew
         uses: Homebrew/actions/setup-homebrew@master
