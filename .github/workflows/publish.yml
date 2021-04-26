@@ -7,7 +7,7 @@ jobs:
   pr-pull:
     strategy:
       matrix:
-        version: ["macos-11.3-arm64", "macos-11.3", "macos-10.15", "macos-10.14"]
+        version: ["macos-latest-arm64", "macos-latest", "macos-10.15", "macos-10.14"]
       fail-fast: false
     if: contains(github.event.pull_request.labels.*.name, 'pr-pull')
     runs-on: ${{ matrix.version }}
