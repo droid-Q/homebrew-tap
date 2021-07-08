@@ -6,6 +6,7 @@ class Arthas < Formula
   bottle :unneeded
 
   depends_on "telnet"
+
   def install
     bin.install "as.sh" => "as"
   end

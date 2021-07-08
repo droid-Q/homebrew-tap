@@ -9,7 +9,7 @@ class Aria2 < Formula
   #   sha256 "ac30ddd38383775ce69f0558b24ba9b12db4c8ef2f9e9a9f22c6d6d8bdd78b6c"
   # end
   bottle :unneeded
-  
+
   depends_on "pkg-config" => :build
   depends_on "libssh2"
 
