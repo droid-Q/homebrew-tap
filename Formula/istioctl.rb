@@ -6,7 +6,6 @@ class Istioctl < Formula
       revision: "6e4665c22b35447ab2c4509b37b4009b319ba945"
   license "Apache-2.0"
   head "https://github.com/istio/istio.git"
-  bottle :unneeded
 
   depends_on "go" => :build
   depends_on "go-bindata" => :build
