@@ -1,12 +1,12 @@
 name: brew test-bot
 on:
   push:
-    branches:
-      - main
+    branches: master
   pull_request:
 jobs:
   test-bot:
     strategy:
+      fail-fast: false
       matrix:
         os: ["ubuntu-latest", "macos-latest"]
     runs-on: ${{ matrix.os }}
@@ -42,3 +42,12 @@ jobs:
         with:
           name: bottles
           path: '*.bottle.*'
+
+      - name: Upload logs as artifact
+        if: failure() && github.event_name == 'pull_request'
+        uses: actions/upload-artifact@main
+        with:
+          name: logs (${{ matrix.os }})
+          path: |
+            /home/runner/.cache/Homebrew/Logs/*/*
+            /Users/runner/Library/Logs/Homebrew/*/*
