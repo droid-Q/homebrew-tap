@@ -6,6 +6,7 @@ class Istioctl < Formula
       revision: "6e4665c22b35447ab2c4509b37b4009b319ba945"
   license "Apache-2.0"
   head "https://github.com/istio/istio.git"
+  bottle :unneeded
 
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:  "0ef426cf30bfbe686b6b31687aa3b5e2f54c68dec1030b9946db0f98c15f7ba1"

@@ -4,6 +4,7 @@ class Rke < Formula
   url "https://github.com/rancher/rke/archive/v1.2.9.tar.gz"
   sha256 "958f1be715be516bc782896d6d77b0665054ec6545f94d1b423f24edec1a77f0"
   license "Apache-2.0"
+  bottle :unneeded
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "98bf45da784fd5d5a04c260da59d9caaff0ec68834e71c0145d77098f9e37c87"
