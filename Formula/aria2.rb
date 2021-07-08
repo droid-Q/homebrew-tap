@@ -4,9 +4,9 @@ class Aria2 < Formula
   url "https://github.com/aria2/aria2/releases/download/release-1.35.0/aria2-1.35.0.tar.xz"
   sha256 "1e2b7fd08d6af228856e51c07173cfcf987528f1ac97e04c5af4a47642617dfd"
   head "https://github.com/aria2/aria2.git"
-# patch do
-#   url "https://raw.githubusercontent.com/droid-Q/aria2-patch/master/myaria2.patch"
-#   sha256 "ac30ddd38383775ce69f0558b24ba9b12db4c8ef2f9e9a9f22c6d6d8bdd78b6c"
+  # patch do
+  #   url "https://raw.githubusercontent.com/droid-Q/aria2-patch/master/myaria2.patch"
+  #   sha256 "ac30ddd38383775ce69f0558b24ba9b12db4c8ef2f9e9a9f22c6d6d8bdd78b6c"
   # end
 
   depends_on "pkg-config" => :build
@@ -33,6 +33,8 @@ class Aria2 < Formula
     bash_completion.install "doc/bash_completion/aria2c"
   end
 
+  plist_options manual: "aria2c -h"
+
   def plist
     <<~EOS
       <?xml version="1.0" encoding="UTF-8"?>
@@ -51,6 +53,7 @@ class Aria2 < Formula
       </plist>
     EOS
   end
+  
   test do
     system "#{bin}/aria2c", "https://brew.sh/"
     assert_predicate testpath/"index.html", :exist?, "Failed to create index.html!"
