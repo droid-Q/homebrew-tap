@@ -11,21 +11,34 @@ class Aria2 < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libssh2"
+  
   uses_from_macos "libxml2"
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "openssl@1.1"
+  end
+
   def install
     ENV.cxx11
 
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
-      --with-appletls
       --with-libssh2
-      --without-openssl
       --without-gnutls
       --without-libgmp
       --without-libnettle
       --without-libgcrypt
     ]
+    on_macos do
+      args << "--with-appletls"
+      args << "--without-openssl"
+    end
+    on_linux do
+      args << "--without-appletls"
+      args << "--with-openssl"
+    end
 
     system "./configure", *args
     system "make", "install"
