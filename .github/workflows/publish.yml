@@ -19,14 +19,14 @@ jobs:
 
       - name: Pull bottles
         env:
-          HOMEBREW_GITHUB_API_TOKEN: ${{ HOMEBREW_SECRET }}
+          HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.HOMEBREW_SECRET }}
           PULL_REQUEST: ${{ github.event.pull_request.number }}
         run: brew pr-pull --debug --tap=$GITHUB_REPOSITORY $PULL_REQUEST
 
       - name: Push commits
         uses: Homebrew/actions/git-try-push@master
         with:
-          token: ${{ HOMEBREW_SECRET}}
+          token: ${{ secrets.HOMEBREW_SECRET}}
           branch: master
 
       - name: Delete branch
