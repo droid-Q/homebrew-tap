@@ -1,11 +1,9 @@
 class Aria2 < Formula
   desc "Download with resuming and segmented downloading"
   homepage "https://aria2.github.io/"
-  url "https://github.com/aria2/aria2.git",
-      tag:      "release-1.35.0",
-      revision: "7f79854b2ed6ef4978a8526831034b34b1fb3871"
-  license "Apache-2.0"
-  head "https://github.com/aria2/aria2.git"
+  url "https://github.com/aria2/aria2/releases/download/release-1.35.0/aria2-1.35.0.tar.xz"
+  sha256 "1e2b7fd08d6af228856e51c07173cfcf987528f1ac97e04c5af4a47642617dfd"
+  license "GPL-2.0-or-later"
   # patch do
   #   url "https://raw.githubusercontent.com/droid-Q/aria2-patch/master/myaria2.patch"
   #   sha256 "ac30ddd38383775ce69f0558b24ba9b12db4c8ef2f9e9a9f22c6d6d8bdd78b6c"
