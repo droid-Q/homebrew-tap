@@ -9,7 +9,6 @@ class Arthas < Formula
 
   depends_on "openjdk@8" => :build
   depends_on "maven" => :build
-  depends_on "telnet"
 
   def install
     ENV["JAVA_HOME"] = Formula["openjdk@8"].opt_prefix
