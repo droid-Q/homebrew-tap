@@ -13,7 +13,7 @@ class Arthas < Formula
   def install
     ENV["JAVA_HOME"] = Formula["openjdk@8"].opt_prefix
     system "mvn", "clean", "package", "-DskipTests", "-P", "full"
-    bin.install "bin/as.sh" => "as"
+    bin.install "bin/as.sh" => "arthas"
   end
 
   test do
