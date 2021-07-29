@@ -7,17 +7,12 @@ class Arthas < Formula
   license "Apache-2.0"
   head "https://github.com/alibaba/arthas"
 
-  bottle do
-    root_url "https://github.com/droid-Q/homebrew-tap/releases/download/arthas-3.5.2"
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, catalina: "63f1f9acee56fb80fd059969c5df5a7d2f3740f8aed753f295955d4cf0903a3f"
-  end
-
-  depends_on "java" => :build
+  depends_on "openjdk@8" => :build
   depends_on "maven" => :build
   depends_on "telnet"
 
   def install
+    ENV["JAVA_HOME"] = Formula["openjdk@8"].opt_prefix
     system "mvn", "clean", "package", "-DskipTests", "-P", "full"
     bin.install "bin/as.sh" => "as"
   end
