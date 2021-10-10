@@ -8,9 +8,9 @@ class Arthas < Formula
   head "https://github.com/alibaba/arthas"
 
   bottle do
-    root_url "https://github.com/droid-Q/homebrew-tap/releases/download/arthas-3.5.3"
-    sha256 cellar: :any_skip_relocation, big_sur:      "527dd7f57f1c51793bc76a7f8b5d9f1ad303d4d2dbefd4b0bb29bfce7590f450"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "6f5d2fa24ed7a4d8e10a89f75a8b8ae8434842a46a9246d14bef15ae8bdd37e6"
+    root_url "https://github.com/droid-Q/homebrew-tap/releases/download/arthas-3.5.4"
+    sha256 cellar: :any_skip_relocation, big_sur:      "0ac332b1591d0e338df55771d81023b076d85ae5952721a8823bc6da85554746"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "a1ef8f4f4065fd0cbc0d5b82a0c1bf71fdb5da83c455a4330a9b7157db60d7cf"
   end
 
   depends_on "openjdk@8" => :build
