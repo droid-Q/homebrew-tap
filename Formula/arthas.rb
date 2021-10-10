@@ -2,8 +2,8 @@ class Arthas < Formula
   desc "Alibaba Java Diagnostic Tool Arthas/Alibaba Java诊断利器Arthas"
   homepage "https://alibaba.github.io/arthas/"
   url "https://github.com/alibaba/arthas.git",
-      tag:      "arthas-all-3.5.3",
-      revision: "dfecd76e31b5b6aa4814ef52ff9d5bc7cad9c5a0"
+      tag:      "arthas-all-3.5.4",
+      revision: "7f7c47cee43a6ebd436ef11e38456e53fe0c8cab"
   license "Apache-2.0"
   head "https://github.com/alibaba/arthas"
 
