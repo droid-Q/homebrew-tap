@@ -8,9 +8,9 @@ class Istioctl < Formula
   head "https://github.com/istio/istio.git"
 
   bottle do
-    root_url "https://github.com/droid-Q/homebrew-tap/releases/download/istioctl-1.11.0"
-    sha256 cellar: :any_skip_relocation, big_sur:      "70584db2d06839e3ca042a30a09700c762a605afbc3c74e79800d6a8fc4b92e1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "81fad69d7269c5d767c7a0c47f13dd4605ac0634bf442a46a01dd4deedbb2d0f"
+    root_url "https://github.com/droid-Q/homebrew-tap/releases/download/istioctl-1.11.3"
+    sha256 cellar: :any_skip_relocation, big_sur:      "a89486ede2bfc7434a82e3a3a20f85ee8256cfdcf1a3a6bbb641aa4c6f9f6afc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "00b73a0ad521c36665ae71371571cdc8eb55e1cb7e92d7feb0065f017abfe31d"
   end
 
   depends_on "go" => :build
