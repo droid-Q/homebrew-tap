@@ -10,10 +10,9 @@ class Aria2 < Formula
   # end
 
   bottle do
-    root_url "https://github.com/droid-Q/homebrew-tap/releases/download/aria2-1.35.0"
-    rebuild 2
-    sha256 cellar: :any, big_sur:      "8f7222f45b0eccb65833112eb9ed5f67b54cd919c3c845a2610e70f68ef6de0e"
-    sha256               x86_64_linux: "bb09b43cc9127aef8e47072911764ba12b34161455677c3f10b47124a2412272"
+    root_url "https://github.com/droid-Q/homebrew-tap/releases/download/aria2-1.36.0"
+    sha256 cellar: :any, big_sur:      "ba6e2e2a0b566d97d75a62c5d8aaab30bb5d514f5155dd2d62666d5376a3a68f"
+    sha256               x86_64_linux: "31458ccab030a4dd15f245adcb9babcd5ace357505e03cc4f2326049bdd3a7f5"
   end
 
   depends_on "pkg-config" => :build
