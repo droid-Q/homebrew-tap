@@ -9,7 +9,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        platform: [macos-11]
+        platform: [macos-12]
     runs-on: ${{ matrix.platform }}
     steps:
       - name: Set up Homebrew
