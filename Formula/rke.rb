@@ -6,9 +6,9 @@ class Rke < Formula
   license "Apache-2.0"
 
   bottle do
-    root_url "https://github.com/droid-Q/homebrew-tap/releases/download/rke-1.3.1"
-    sha256 cellar: :any_skip_relocation, big_sur:      "73cd7f1840db6aaf2de3e3770c877a5d5d86c16959452471fb0219d301e7b85e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "dbc353d8112528227cd509605ac5c9ebaca51fe800d7780ac17bec197d1433f7"
+    root_url "https://github.com/droid-Q/homebrew-tap/releases/download/rke-1.3.2"
+    sha256 cellar: :any_skip_relocation, big_sur:      "4be055e6a9daa99c32f7cc70a897800181e2c529810cccf353d9df6139ccc2af"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "d7aef1d12f5e737c45f08f74b5263dab972daef7412e1ad1540d8329a88e2052"
   end
 
   depends_on "go" => :build
