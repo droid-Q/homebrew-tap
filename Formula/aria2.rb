@@ -16,7 +16,9 @@ class Aria2 < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "gettext"
   depends_on "libssh2"
+  depends_on "sqlite"
 
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
@@ -37,11 +39,10 @@ class Aria2 < Formula
       --without-libnettle
       --without-libgcrypt
     ]
-    on_macos do
+    if OS.mac?
       args << "--with-appletls"
       args << "--without-openssl"
-    end
-    on_linux do
+    else
       args << "--without-appletls"
       args << "--with-openssl"
     end
@@ -50,27 +51,6 @@ class Aria2 < Formula
     system "make", "install"
 
     bash_completion.install "doc/bash_completion/aria2c"
-  end
-
-  plist_options manual: "aria2c -h"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/aria2c</string>
-        </array>
-        <key>RunAtLoad</key><true/>
-        <key>KeepAlive</key><true/>
-      </dict>
-      </plist>
-    EOS
   end
 
   test do
